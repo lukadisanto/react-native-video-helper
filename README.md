@@ -4,6 +4,8 @@
 ## Getting started
 
 `$ npm install react-native-video-helper --save`
+or
+`$ yarn add react-native-video-helper`
 
 ## Supported versions
 
