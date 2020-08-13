@@ -39,11 +39,11 @@ or
 2. Append the following lines to `android/settings.gradle`:
     ```
     include ':react-native-video-helper-fork'
-    project(':react-native-video-helper-fork').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-video-helper-fork/android')
+    project(':react-native-video-helper-fork').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-video-helper-fork/android')
     ```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
     ```
-      compile project(':react-native-video-helper')
+      implementation project(':react-native-video-helper-fork')
     ```
 
 ## Usage
@@ -51,8 +51,7 @@ or
 ```javascript
 import RNVideoHelper from 'react-native-video-helper-fork';
 
-const sourceUri =
-    'assets-library://asset/asset.mov?id=0F3F0000-9518-4F32-B389-7117F4C2B069&ext=mov';
+const sourceUri = 'assets-library://asset/asset.mov';
 
 RNVideoHelper.compress(sourceUri, {
     startTime: 10, // optional, in seconds, defaults to 0
