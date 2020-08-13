@@ -38,8 +38,8 @@ or
 
 2. Append the following lines to `android/settings.gradle`:
     ```
-    include ':react-native-video-helper'
-    project(':react-native-video-helper').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-video-helper/android')
+    include ':react-native-video-helper-fork'
+    project(':react-native-video-helper-fork').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-video-helper-fork/android')
     ```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
     ```
