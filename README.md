@@ -1,17 +1,18 @@
-
 # react-native-video-helper
 
 ## Getting started
 
-`$ npm install react-native-video-helper --save`
+`$ npm install react-native-video-helper-fork --save`
+
 or
-`$ yarn add react-native-video-helper`
+
+`$ yarn add react-native-video-helper-fork`
 
 ## Supported versions
 
-| React-Native Version  | Video-Helper Supported Version  |
-|---|---|
-| RN >= 0.60 | >= 1.4.3  |
+| React-Native Version | Video-Helper Supported Version |
+| -------------------- | ------------------------------ |
+| RN >= 0.60           | >= 1.4.3                       |
 
 ## If you are using react-native before 0.60 version, you can link using:
 
@@ -31,33 +32,38 @@ or
 #### Android
 
 1. Open up `android/app/src/main/java/[...]/MainActivity.java`
-  - Add `import com.reactlibrary.RNVideoHelperPackage;` to the imports at the top of the file
-  - Add `new RNVideoHelperPackage()` to the list returned by the `getPackages()` method
+
+-   Add `import com.reactlibrary.RNVideoHelperPackage;` to the imports at the top of the file
+-   Add `new RNVideoHelperPackage()` to the list returned by the `getPackages()` method
+
 2. Append the following lines to `android/settings.gradle`:
-  	```
-  	include ':react-native-video-helper'
-  	project(':react-native-video-helper').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-video-helper/android')
-  	```
+    ```
+    include ':react-native-video-helper'
+    project(':react-native-video-helper').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-video-helper/android')
+    ```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  	```
+    ```
       compile project(':react-native-video-helper')
-  	```
+    ```
 
 ## Usage
+
 ```javascript
 import RNVideoHelper from 'react-native-video-helper';
 
-const sourceUri = 'assets-library://asset/asset.mov?id=0F3F0000-9518-4F32-B389-7117F4C2B069&ext=mov';
+const sourceUri =
+    'assets-library://asset/asset.mov?id=0F3F0000-9518-4F32-B389-7117F4C2B069&ext=mov';
 
 RNVideoHelper.compress(sourceUri, {
-	startTime: 10, // optional, in seconds, defaults to 0
-	endTime: 100, //  optional, in seconds, defaults to video duration
-	quality: 'low', // default low, can be medium or high
-	defaultOrientation: 0 // By default is 0, some devices not save this property in metadata. Can be between 0 - 360
-}).progress(value => {
-	console.warn('progress', value); // Int with progress value from 0 to 1
-}).then(compressedUri => {
-	console.warn('compressedUri', compressedUri); // String with path to temporary compressed video
-});
+    startTime: 10, // optional, in seconds, defaults to 0
+    endTime: 100, //  optional, in seconds, defaults to video duration
+    quality: 'low', // default low, can be medium or high
+    defaultOrientation: 0, // By default is 0, some devices not save this property in metadata. Can be between 0 - 360
+})
+    .progress((value) => {
+        console.warn('progress', value); // Int with progress value from 0 to 1
+    })
+    .then((compressedUri) => {
+        console.warn('compressedUri', compressedUri); // String with path to temporary compressed video
+    });
 ```
-  
